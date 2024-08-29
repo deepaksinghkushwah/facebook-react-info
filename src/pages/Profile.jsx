@@ -6,7 +6,7 @@ const Profile = () => {
   const getProfile = useUserStore((state) => state.getProfile);
   const profile = useUserStore((state) => state.profile);
   useEffect(() => {
-    getProfile(token);
+    async() => await getProfile(token)();
   }, []);
 
   return (
@@ -20,7 +20,7 @@ const Profile = () => {
           <br />
           ID: {profile?.id}
           <br />
-          <img src={profile.picture.data.url} />
+          <img src={profile?.picture?.data?.url} />          
         </>
       ) : (
         <span>Profile not found</span>

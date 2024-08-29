@@ -31,7 +31,7 @@ export const userSlice = (set, get) => ({
       url: 'https://graph.facebook.com/me',
       method: 'get',
       params: {
-        fields: ['id', 'email', 'first_name', 'last_name','picture'].join(','),
+        fields: ['id', 'email', 'first_name', 'last_name','picture.width(800).height(600)'].join(','),
         access_token: token,
       },
     });
