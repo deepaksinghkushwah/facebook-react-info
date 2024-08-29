@@ -6,7 +6,10 @@ const Profile = () => {
   const getProfile = useUserStore((state) => state.getProfile);
   const profile = useUserStore((state) => state.profile);
   useEffect(() => {    
-     getProfile(token);    
+    (async() => {
+      await getProfile(token);    
+    })();
+     
   }, []);
 
   return (
