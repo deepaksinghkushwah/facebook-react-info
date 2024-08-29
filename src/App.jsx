@@ -10,6 +10,7 @@ import LoginPage from "./pages/LoginPage";
 import RequiredAuth from "./components/RequiredAuth";
 import Dashboard from "./pages/members/Dashboard";
 import Profile from "./pages/Profile";
+import FacebookPage from "./pages/FacebookPage";
 function App() {
   return (
     <>
@@ -22,6 +23,7 @@ function App() {
             <Route element={<RequiredAuth/>}>
               <Route path="/dashboard" element={<Dashboard/>}/>
               <Route path="/profile" element={<Profile/>}/>
+              <Route path="/facebook-page" element={<FacebookPage/>}/>
               
             </Route>
           </Route>

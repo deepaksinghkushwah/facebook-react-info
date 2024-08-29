@@ -1,16 +1,8 @@
 import { Link } from "react-router-dom";
 import { useUserStore } from "../../store/useStore";
-import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+
 const TopNavbar = () => {
   const token = useUserStore((state) => state.token);
-  const logout = useUserStore((state) => state.logout);
-  const navigate = useNavigate();
-  const handleLogout = async () => {
-    await logout();
-    toast.success("You are logged out");
-    navigate("/login");
-  };
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary mb-4">
@@ -55,12 +47,26 @@ const TopNavbar = () => {
                 <ul className="dropdown-menu">
                   {token != null ? (
                     <>
-                      <li className="nav-item">
+                    <li className="nav-item">
                         <Link to="/profile" className="dropdown-item">
                           Profile
                         </Link>
                       </li>
+
                       <li className="nav-item">
+                        <Link to="/facebook-page" className="dropdown-item">
+                          Page 1
+                        </Link>
+                      </li>
+                      <li className="nav-item">
+                        <Link to="/facebook-page" className="dropdown-item">
+                        Page 2
+                        </Link>
+                      </li>
+                      
+
+                     
+                      {/* <li className="nav-item">
                         <Link
                           to="#"
                           onClick={handleLogout}
@@ -68,7 +74,7 @@ const TopNavbar = () => {
                         >
                           Logout
                         </Link>
-                      </li>
+                      </li> */}
                     </>
                   ) : (
                     <>

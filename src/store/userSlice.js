@@ -35,7 +35,7 @@ export const userSlice = (set, get) => ({
         access_token: token,
       },
     });
-
+    
     if (data) {
       set((state) => ({
         ...state,
