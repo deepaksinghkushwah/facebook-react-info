@@ -7,15 +7,24 @@ const Profile = () => {
   const profile = useUserStore((state) => state.profile);
   useEffect(() => {
     getProfile(token);
-  },[]);
-  
+  }, []);
+
   return (
     <>
       <h1>Profile</h1>
-      Name: {profile?.first_name + " "+ profile.last_name}<br/>
-      Email: {profile?.email}<br/>
-      ID: {profile?.id}<br/>
-      <img src={profile.picture.data.url}/>
+      {profile != null ? (
+        <>
+          Name: {profile?.first_name + " " + profile.last_name}
+          <br />
+          Email: {profile?.email}
+          <br />
+          ID: {profile?.id}
+          <br />
+          <img src={profile.picture.data.url} />
+        </>
+      ) : (
+        <span>Profile not found</span>
+      )}
     </>
   );
 };
